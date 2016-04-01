@@ -3,14 +3,14 @@
 <%@ include file="localHeader.jsp"%>
 
 <openmrs:htmlInclude
-	file="/moduleResources/laboratorymodule/menuStyle.css" />
-<openmrs:htmlInclude file="/moduleResources/laboratorymodule/jquery.js" />
-<openmrs:htmlInclude file="/moduleResources/laboratorymodule/chosen.jquery.min.js" />
-<openmrs:htmlInclude file="/moduleResources/laboratorymodule/chosen.css" />
+	file="/moduleResources/laboratorymanagement/menuStyle.css" />
+<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
+<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/chosen.jquery.min.js" />
+<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/chosen.css" />
 <openmrs:htmlInclude
-	file="/moduleResources/laboratorymodule/jsControl.js" />
+	file="/moduleResources/laboratorymanagement/jsControl.js" />
 <openmrs:htmlInclude
-	file="/moduleResources/laboratorymodule/jsCreateFields.js" />
+	file="/moduleResources/laboratorymanagement/jsCreateFields.js" />
 
 <script>
 	var $t = jQuery.noConflict();

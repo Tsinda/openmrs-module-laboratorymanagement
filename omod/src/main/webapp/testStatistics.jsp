@@ -1,7 +1,7 @@
 <%@ include file="/WEB-INF/template/include.jsp"%>
 <%@ include file="/WEB-INF/template/header.jsp"%>
 <%@ include file="localHeader.jsp"%>
-<openmrs:htmlInclude file="/moduleResources/laboratorymodule/jquery.js" />
+<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
 <script language="javascript" type="text/javascript">
 	var $k = jQuery.noConflict();
 </script>
@@ -78,7 +78,7 @@
 			<tr>
 				<td width="70%">${mappedLab.key.name}</td>
 				<td><a
-					href="${pageContext.request.contextPath}/module/laboratorymodule/testByConcept.form?testType=${mappedLab.key.conceptId}&patientId=${patientIdstr}&startDate=${startdate}&endDate=${enddate}&locationId=${locationIdstr}">${mappedLab.value}</a></td>
+					href="${pageContext.request.contextPath}/module/laboratorymanagement/testByConcept.form?testType=${mappedLab.key.conceptId}&patientId=${patientIdstr}&startDate=${startdate}&endDate=${enddate}&locationId=${locationIdstr}">${mappedLab.value}</a></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -101,7 +101,7 @@
 			<tr>
 				<td width="70%">${labExams.key.name}</td>
 				<td><a
-					href="${pageContext.request.contextPath}/module/laboratorymodule/testByConcept.form?lineNumber=${status.count}">${labExams.value}</a></td>
+					href="${pageContext.request.contextPath}/module/laboratorymanagement/testByConcept.form?lineNumber=${status.count}">${labExams.value}</a></td>
 			</tr>
 		</c:forEach>
 	</table>

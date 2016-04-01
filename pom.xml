@@ -3,18 +3,18 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.openmrs.module</groupId>
-	<artifactId>laboratorymodule</artifactId>
+	<artifactId>laboratorymanagement</artifactId>
 	<version>0.1.0.10-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>Laboratory Module</name>
-	<description>Parent project for Laboratory Module</description>
+	<name>Laboratory Managment</name>
+	<description>Parent project for Laboratory Managment</description>
 
 	<url>http://openmrs.org</url>
 
 	<scm>
-		<connection>scm:svn:http://svn.openmrs.org/openmrs-modules/laboratorymodule/trunk/</connection>
-		<developerConnection>scm:svn:http://svn.openmrs.org/openmrs-modules/laboratorymodule/trunk/</developerConnection>
-		<url>http://svn.openmrs.org/openmrs-modules/laboratorymodule/trunk/</url>
+		<connection>scm:svn:http://svn.openmrs.org/openmrs-modules/laboratorymanagement/trunk/</connection>
+		<developerConnection>scm:svn:http://svn.openmrs.org/openmrs-modules/laboratorymanagement/trunk/</developerConnection>
+		<url>http://svn.openmrs.org/openmrs-modules/laboratorymanagement/trunk/</url>
 	</scm>
 
 	<modules>

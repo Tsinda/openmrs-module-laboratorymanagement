@@ -2,16 +2,16 @@
 <%@ include file="/WEB-INF/template/header.jsp"%>
 <%@ include file="localHeader.jsp"%>
 
-<openmrs:htmlInclude file="/moduleResources/laboratorymodule/jquery.js" />
-<openmrs:htmlInclude file="/moduleResources/laboratorymodule/style.css" />
+<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
+<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/style.css" />
 <openmrs:htmlInclude
-	file="/moduleResources/laboratorymodule/jquery.dataTables.js" />
+	file="/moduleResources/laboratorymanagement/jquery.dataTables.js" />
 
 <openmrs:htmlInclude
-	file="/moduleResources/laboratorymodule/demo_page.css" />
+	file="/moduleResources/laboratorymanagement/demo_page.css" />
 
 <openmrs:htmlInclude
-	file="/moduleResources/laboratorymodule/demo_table.css" />	
+	file="/moduleResources/laboratorymanagement/demo_table.css" />	
 
 <b><spring:message code="laboratorymodule.searchBy" /></b>
 <script language="javascript" type="text/javascript">
@@ -59,7 +59,7 @@
 	<div align="right">
 
 	<div align="right"><a
-		href="${pageContext.request.contextPath}/module/laboratorymodule/labCode.form?patientId=${patient.patientId}&startDate=${startDat}">Add
+		href="${pageContext.request.contextPath}/module/laboratorymanagement/labCode.form?patientId=${patient.patientId}&startDate=${startDat}">Add
 	LabCode</a></div>
 	</div>
 

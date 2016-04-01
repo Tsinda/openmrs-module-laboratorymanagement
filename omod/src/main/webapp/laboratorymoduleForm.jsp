@@ -3,12 +3,12 @@
 <%@ include file="/WEB-INF/template/include.jsp"%>
 <%@ include file="/WEB-INF/template/header.jsp"%>
 <%@ include file="localHeader.jsp"%>
-<openmrs:htmlInclude file="/moduleResources/laboratorymodule/menuStyle.css" />
+<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/menuStyle.css" />
 <openmrs:htmlInclude
-	file="/moduleResources/laboratorymodule/jsSelectOption.js" />
-<openmrs:htmlInclude file="/moduleResources/laboratorymodule/jquery.js" />
+	file="/moduleResources/laboratorymanagement/jsSelectOption.js" />
+<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
 <openmrs:htmlInclude
-	file="/moduleResources/laboratorymodule/laboratoryFormValidator.js" />
+	file="/moduleResources/laboratorymanagement/laboratoryFormValidator.js" />
 <script>
 var $t = jQuery.noConflict();
 
