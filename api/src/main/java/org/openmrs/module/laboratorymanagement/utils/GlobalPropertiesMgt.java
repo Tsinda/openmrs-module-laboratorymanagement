@@ -16,7 +16,7 @@ public class GlobalPropertiesMgt {
 		List<Concept> labConcepts = new ArrayList<Concept>();
 		GlobalProperty gp = Context
 				.getAdministrationService()
-				.getGlobalPropertyObject("laboratorymodule.labtests.conceptIds");
+				.getGlobalPropertyObject("laboratorymanagement.labtests.conceptIds");
 		String[] conceptIds = gp.getPropertyValue().split(",");
 		for (String s : conceptIds) {
 			labConcepts.add(Context.getConceptService().getConcept(
@@ -31,7 +31,7 @@ public class GlobalPropertiesMgt {
 	 * @return Map<Concept,Bolean>
 	 */
 	public static Map<Concept, Boolean> getConceptHasMultipleAnswers() { Map<Concept, Boolean> labConcepts = new HashMap<Concept, Boolean>();
-		GlobalProperty gp = Context.getAdministrationService().getGlobalPropertyObject("laboratorymodule.multipleAnswerConceptIds");
+		GlobalProperty gp = Context.getAdministrationService().getGlobalPropertyObject("laboratorymanagement.multipleAnswerConceptIds");
 		String[] conceptIds = gp.getPropertyValue().split(",");
 		for (String s : conceptIds) {
 			labConcepts.put(Context.getConceptService().getConcept(Integer.valueOf(s)), true);
@@ -41,12 +41,12 @@ public class GlobalPropertiesMgt {
 
 	public  static String getLabOrderEncounterTypeFromGlobalProperties() {
 		return Context.getAdministrationService().getGlobalProperty(
-				"laboratorymodule.encounterType.labOrderEncounterTypeId");
+				"laboratorymanagement.encounterType.labOrderEncounterTypeId");
 
 	}
 	public static  String getLabOrderTypeId() {
 		return Context.getAdministrationService().getGlobalProperty(
-				"laboratorymodule.orderType.labOrderTypeId");
+				"laboratorymanagement.orderType.labOrderTypeId");
 
 	}
 	/**
@@ -56,7 +56,7 @@ public class GlobalPropertiesMgt {
 	 */
 	public static  List<Concept> getLabExamCategories() {
 		List<Concept>conceptCategories=new ArrayList<Concept>();
-		GlobalProperty gp = Context.getAdministrationService().getGlobalPropertyObject("laboratorymodule.labExamCategory");
+		GlobalProperty gp = Context.getAdministrationService().getGlobalPropertyObject("laboratorymanagement.labExamCategory");
 				String[] conceptIds = gp.getPropertyValue().split(",");
 		for (String conceptIdstr: conceptIds) {
 			Concept cpt=Context.getConceptService().getConcept(Integer.valueOf(conceptIdstr)) ;

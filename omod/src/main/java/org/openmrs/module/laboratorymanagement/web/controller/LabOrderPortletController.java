@@ -1,13 +1,15 @@
 package org.openmrs.module.laboratorymanagement.web.controller;
 
+import java.text.ParseException;
 import java.util.Collection;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import org.openmrs.Concept;
 import org.openmrs.ConceptName;
 import org.openmrs.Location;
@@ -22,6 +24,7 @@ import org.openmrs.module.laboratorymanagement.advice.LabTestConstants;
 import org.openmrs.module.laboratorymanagement.utils.GlobalPropertiesMgt;
 import org.openmrs.module.laboratorymanagement.utils.LabUtils;
 import org.openmrs.module.mohappointment.model.MoHAppointment;
+
 import org.openmrs.module.mohappointment.utils.AppointmentUtil;
 import org.openmrs.web.controller.PortletController;
 

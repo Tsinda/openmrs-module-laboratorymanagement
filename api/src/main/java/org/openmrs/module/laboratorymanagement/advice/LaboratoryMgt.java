@@ -346,7 +346,7 @@ public class LaboratoryMgt {
 		List<Integer> labConceptIds = new ArrayList<Integer>();
 		GlobalProperty gp = Context
 				.getAdministrationService()
-				.getGlobalPropertyObject("laboratorymodule.labtests.conceptIds");
+				.getGlobalPropertyObject("laboratorymanagement.labtests.conceptIds");
 
 		String[] conceptIds = gp.getPropertyValue().split(",");
 		for (String s : conceptIds) {

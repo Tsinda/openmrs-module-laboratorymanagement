@@ -2,7 +2,6 @@
 <%@ include file="/WEB-INF/template/header.jsp"%>
 <%@ include file="localHeader.jsp"%>
 
-<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
 <openmrs:htmlInclude file="/moduleResources/laboratorymanagement/style.css" />
 <openmrs:htmlInclude
 	file="/moduleResources/laboratorymanagement/jquery.dataTables.js" />
@@ -13,7 +12,7 @@
 <openmrs:htmlInclude
 	file="/moduleResources/laboratorymanagement/demo_table.css" />
 
-<b><spring:message code="laboratorymodule.searchBy" /></b>
+<b><spring:message code="laboratorymanagement.searchBy" /></b>
 <script language="javascript" type="text/javascript">
 	var $k = jQuery.noConflict();
 </script>
@@ -39,11 +38,11 @@
 		<thead>
 			<tr id="obsListingHeaderRow">
 				<th class="obsConceptName"><spring:message
-					code="laboratorymodule.number" /></th>
-				<th><spring:message code="laboratorymodule.patientName" /></th>
-				<th><spring:message code="laboratorymodule.testName" /></th>
-				<th><spring:message code="laboratorymodule.observedOn" /></th>
-				<th><spring:message code="laboratorymodule.Results" /></th>
+					code="laboratorymanagement.number" /></th>
+				<th><spring:message code="laboratorymanagement.patientName" /></th>
+				<th><spring:message code="laboratorymanagement.testName" /></th>
+				<th><spring:message code="laboratorymanagement.observedOn" /></th>
+				<th><spring:message code="laboratorymanagement.Results" /></th>
 
 
 			</tr>
@@ -81,11 +80,11 @@
 		<thead>
 			<tr id="obsListingHeaderRow">
 				<th class="obsConceptName"><spring:message
-					code="laboratorymodule.number" /></th>
-				<th><spring:message code="laboratorymodule.patientName" /></th>
-				<th><spring:message code="laboratorymodule.testName" /></th>
-				<th><spring:message code="laboratorymodule.observedOn" /></th>
-				<th><spring:message code="laboratorymodule.Results" /></th>
+					code="laboratorymanagement.number" /></th>
+				<th><spring:message code="laboratorymanagement.patientName" /></th>
+				<th><spring:message code="laboratorymanagement.testName" /></th>
+				<th><spring:message code="laboratorymanagement.observedOn" /></th>
+				<th><spring:message code="laboratorymanagement.Results" /></th>
 
 
 			</tr>
@@ -123,11 +122,11 @@
 		<thead>
 			<tr id="obsListingHeaderRow">
 				<th class="obsConceptName"><spring:message
-					code="laboratorymodule.number" /></th>
-				<th><spring:message code="laboratorymodule.patientName" /></th>
-				<th><spring:message code="laboratorymodule.testName" /></th>
-				<th><spring:message code="laboratorymodule.observedOn" /></th>
-				<th><spring:message code="laboratorymodule.Results" /></th>
+					code="laboratorymanagement.number" /></th>
+				<th><spring:message code="laboratorymanagement.patientName" /></th>
+				<th><spring:message code="laboratorymanagement.testName" /></th>
+				<th><spring:message code="laboratorymanagement.observedOn" /></th>
+				<th><spring:message code="laboratorymanagement.Results" /></th>
 
 
 			</tr>

@@ -2,7 +2,6 @@
 <%@ include file="/WEB-INF/template/header.jsp"%>
 <%@ include file="localHeader.jsp"%>
 
-<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
 <openmrs:htmlInclude file="/moduleResources/laboratorymanagement/style.css" />
 <openmrs:htmlInclude
 	file="/moduleResources/laboratorymanagement/jquery.dataTables.js" />
@@ -13,7 +12,7 @@
 <openmrs:htmlInclude
 	file="/moduleResources/laboratorymanagement/demo_table.css" />
 
-<b><spring:message code="laboratorymodule.searchBy" /></b>
+<b><spring:message code="laboratorymanagement.searchBy" /></b>
 <script language="javascript" type="text/javascript">
 	var $k = jQuery.noConflict();
 </script>
@@ -36,19 +35,19 @@
 		style="border: 2px #000000 double; width: 100 %;">
 		<table style="">
 			<tr>
-				<td><spring:message code="laboratorymodule.tracNetId" />:</td>
+				<td><spring:message code="laboratorymanagement.tracNetId" />:</td>
 				<td>${patient.patientIdentifier}</td>
 			</tr>
 			<tr>
-				<td><spring:message code="laboratorymodule.givenName" /> :</td>
+				<td><spring:message code="laboratorymanagement.givenName" /> :</td>
 				<td>${patient.givenName}</td>
 			</tr>
 			<tr>
-				<td><spring:message code="laboratorymodule.familyName" />:</td>
+				<td><spring:message code="laboratorymanagement.familyName" />:</td>
 				<td>${patient.familyName}</td>
 			</tr>
 			<tr>
-				<td><spring:message code="laboratorymodule.gender" />:</td>
+				<td><spring:message code="laboratorymanagement.gender" />:</td>
 				<td><img
 					src="${pageContext.request.contextPath}/images/${patient.gender == 'M' ? 'male' : 'female'}.gif" /></td>
 			</tr>
@@ -65,13 +64,13 @@
 		<thead>
 			<tr id="obsListingHeaderRow">
 				<th class="obsConceptName"><spring:message
-					code="laboratorymodule.number" /></th>
+					code="laboratorymanagement.number" /></th>
 
-				<th><spring:message code="laboratorymodule.orderId" /></th>
-				<th><spring:message code="laboratorymodule.testName" /></th>
-				<th><spring:message code="laboratorymodule.OrderedOn" /></th>
-				<th><spring:message code="laboratorymodule.status" /></th>
-				<th><spring:message code="laboratorymodule.edit" /></th>
+				<th><spring:message code="laboratorymanagement.orderId" /></th>
+				<th><spring:message code="laboratorymanagement.testName" /></th>
+				<th><spring:message code="laboratorymanagement.OrderedOn" /></th>
+				<th><spring:message code="laboratorymanagement.status" /></th>
+				<th><spring:message code="laboratorymanagement.edit" /></th>
 			</tr>
 		</thead>
 		<tbody>

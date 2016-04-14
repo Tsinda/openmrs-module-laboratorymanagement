@@ -18,7 +18,7 @@ public class ObservationValidator implements Validator{
 		// TODO Auto-generated method stub
 		Obs patientObs = (Obs) obj;
 		if (patientObs.getPerson()==null) {
-			error.rejectValue("patient", "laboratorymodule.selectPatient");
+			error.rejectValue("patient", "laboratorymanagement.selectPatient");
 			
 		}
 		

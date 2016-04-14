@@ -1,7 +1,6 @@
 <%@ include file="/WEB-INF/template/include.jsp"%>
 <%@ include file="/WEB-INF/template/header.jsp"%>
 <openmrs:htmlInclude file="/moduleResources/quarterlyreporting/style.css" />
-<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
 <openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.PrintArea.js" />
 	
 <script type="text/javascript" language="JavaScript">
@@ -18,11 +17,11 @@
 <form action="" method="post">
 <table>
 	<tr>
-		<td><spring:message code="laboratorymodule.from" /></td>
+		<td><spring:message code="laboratorymanagement.from" /></td>
 		<td><openmrs_tag:dateField formFieldName="startDate"
 			startValue="${startdate}" /></td>
 
-		<td><spring:message code="laboratorymodule.to" /></td>
+		<td><spring:message code="laboratorymanagement.to" /></td>
 		<td><openmrs_tag:dateField formFieldName="endDate"
 			startValue="${enddate}" /></td>
 	</tr>
@@ -33,7 +32,7 @@
 	</tr>
 	<tr>
 		<td><input type="submit" name="submitButton "
-			value="<spring:message code="laboratorymodule.search"/>"></td>
+			value="<spring:message code="laboratorymanagement.search"/>"></td>
 
 	</tr>
 </table>

@@ -4,7 +4,6 @@
 
 <openmrs:htmlInclude
 	file="/moduleResources/laboratorymanagement/menuStyle.css" />
-<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
 <openmrs:htmlInclude file="/moduleResources/laboratorymanagement/chosen.jquery.min.js" />
 <openmrs:htmlInclude file="/moduleResources/laboratorymanagement/chosen.css" />
 <openmrs:htmlInclude
@@ -34,14 +33,14 @@
 <form name="laboForm" id="labotryform" method="get">
 <table>
 	<tr>
-		<td><spring:message code="laboratorymodule.labCode" /></td>
+		<td><spring:message code="laboratorymanagement.labCode" /></td>
 		<td><input type="text" name="labCode" value="${labCode}"></td>
 	</tr>
 	<tr>
 		<td></td>
 		<td><input type="submit"
-			value="<spring:message code="laboratorymodule.Search"/>" /><input
-			type="reset" value="<spring:message code="laboratorymodule.cancel"/>" /></td>
+			value="<spring:message code="laboratorymanagement.Search"/>" /><input
+			type="reset" value="<spring:message code="laboratorymanagement.cancel"/>" /></td>
 	</tr>
 </table>
 </form>
@@ -66,7 +65,6 @@
 			<c:set var="resultComment" 	value="comment-${order.concept.conceptId}-${order.orderId}" />
 			<c:choose>
 				<c:when test="${concept.numeric}">
-					<!-- Lab test is numeric -->
 					<table>
 						<tr>
 							<td colspan="3" style="width: 250px; font-weight: italic"><c:out
@@ -84,7 +82,6 @@
 				</c:when>
 
 				<c:when test="${concept.datatype.text}">
-					<!-- Lab test is text -->
 					<table>
 
 						<tr>
@@ -106,7 +103,6 @@
 				</c:when>
 
 				<c:when test="${concept.datatype.coded}">
-					<!-- Lab test is coded -->
 					<table>
 						<tr>
 							<td colspan="3" style="width: 250px; font-weight: italic"><c:out
@@ -144,10 +140,8 @@
 						</tr>
 					</table>
 				</c:when>
-				<!-- if datatype is N/A, i.e. this concept is only an answer, not a question -->
-
+				
 				<c:when test="${concept.datatype.answerOnly}">
-					<!-- Lab test is a construct:display the lab tests linked to the Order considered as a gp of Lab tests -->
 					<c:forEach var="oneGroupedtest" items="${groupedTests}"
 						varStatus="num">
 						<c:set var="conceptName" value="${concept.name}" />
@@ -163,11 +157,9 @@
 								<c:set var="unit" value="${groupedTest[1]}" />
 								<c:set var="childResult" value="${obsResult[childConcept]}" />
 
-								<!-- Append parent construct concept to fieldname -->
 								<c:set var="fieldName"
 									value="labTest-${childConcept.conceptId}-${order.orderId}-${concept.conceptId}" />
 
-								<!-- if one of the child is set of other lab tests ,then go through them -->
 								<c:if test="${childConcept.set}">
 									<c:set var="gdChildrenConcepts"
 										value="${childConcept.conceptSets}" />
@@ -175,8 +167,6 @@
 										varStatus="num">
                                <c:set var="fieldName1"  value="labTest-${gdChildConcept.concept.conceptId}-${order.orderId}-${concept.conceptId}" />
                                
-										<!-- to do :Go through spermogram set and display children+ their children -->
-
 										<c:if test="${gdChildConcept.concept.datatype.text}">
 											<table>
 												<tr>
@@ -198,7 +188,6 @@
 								</c:if>
 								<c:choose>
 									<c:when test="${childConcept.datatype.numeric}">
-										<!-- Lab test is numeric -->
 										<table>
 											<tr>
 												<td colspan="3" style="width: 250px; font-weight: italic"><c:out
@@ -217,10 +206,8 @@
 									</c:when>
 
 									<c:when test="${childConcept.datatype.text}">
-										<!-- Lab test is text -->
 										<table>
 											<tr>
-												<!-- if other results are found,write them in textarea -->
 												<c:if
 													test="${childConcept.name.name eq 'OTHER LAB TEST RESULT' || 'OTHER RESULT'||'OTHER PARASITE IN STOOL'}">
 
@@ -247,7 +234,6 @@
 											</tr>
 										</table>
 									</c:when>
-									<!--start  Lab test is coded -->
 
 									<c:when test="${childConcept.datatype.coded}">
 
@@ -279,7 +265,6 @@
 											</tr>
 										</table>
 									</c:when>
-									<!--end   Lab test is coded -->
 								</c:choose>
 
 							</c:forEach></fieldset>

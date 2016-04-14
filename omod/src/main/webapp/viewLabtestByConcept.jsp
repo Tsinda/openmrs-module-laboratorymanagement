@@ -1,7 +1,6 @@
 <%@ include file="/WEB-INF/template/include.jsp"%>
 <%@ include file="/WEB-INF/template/header.jsp"%>
 <%@ include file="localHeader.jsp"%>
-<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/jquery.js" />
 <openmrs:htmlInclude file="/moduleResources/laboratorymanagement/style.css" />
 <openmrs:htmlInclude
 	file="/moduleResources/laboratorymanagement/jquery.dataTables.js" />
@@ -39,13 +38,13 @@
 		<thead>
 			<tr>
 				<th class="obsConceptName"><spring:message
-					code="laboratorymodule.number" /></th>
-				<th><spring:message code="laboratorymodule.givenName" /></th>
-				<th><spring:message code="laboratorymodule.familyName" /></th>
-				<th><spring:message code="laboratorymodule.testName" /></th>
-				<th><spring:message code="laboratorymodule.testedOn" /></th>
-				<th><spring:message code="laboratorymodule.location" /></th>
-				<th><spring:message code="laboratorymodule.testResults" /></th>
+					code="laboratorymanagement.number" /></th>
+				<th><spring:message code="laboratorymanagement.givenName" /></th>
+				<th><spring:message code="laboratorymanagement.familyName" /></th>
+				<th><spring:message code="laboratorymanagement.testName" /></th>
+				<th><spring:message code="laboratorymanagement.testedOn" /></th>
+				<th><spring:message code="laboratorymanagement.location" /></th>
+				<th><spring:message code="laboratorymanagement.testResults" /></th>
 			</tr>
 		</thead>
 		<tbody>
