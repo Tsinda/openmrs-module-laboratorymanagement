@@ -14,6 +14,7 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.Concept;
@@ -727,15 +728,14 @@ public class LabUtils {
 		Object obsResult[] = null;
 		List<Object[]> obsList = null;
 		List<Date> dates = new ArrayList<Date>();
-		int labOrderTypeId = Integer.parseInt(GlobalPropertiesMgt
-				.getLabOrderTypeId());
+		Integer labOrderTypeId = StringUtils.isBlank(GlobalPropertiesMgt.getLabOrderTypeId()) ? null : Integer.parseInt(GlobalPropertiesMgt.getLabOrderTypeId());
 		List<OrderObs> orderObsList = null;
 		List<Obs> observations = Context.getObsService()
 				.getObservationsByPerson(patient);
 		Map<Date, List<OrderObs>> orderObsMap = new HashMap<Date, List<OrderObs>>();
 
 		for (Order order : orders) {
-			if (order.getOrderType().getOrderTypeId() == labOrderTypeId) {
+			if (labOrderTypeId != null && order.getOrderType().getOrderTypeId() == labOrderTypeId) {
 				dates.add(order.getEffectiveStartDate());
 			}
 		}
@@ -745,7 +745,7 @@ public class LabUtils {
 				orderObsList = new ArrayList<OrderObs>();
 
 				for (Order order : orders) {
-					if (order.getOrderType().getOrderTypeId() == labOrderTypeId
+					if (labOrderTypeId != null && order.getOrderType().getOrderTypeId() == labOrderTypeId
 							&& order.getEffectiveStartDate().equals(date)) {
 						obsList = new ArrayList<Object[]>();
 						OrderObs orderObs = new OrderObs();

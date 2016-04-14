@@ -1,7 +1,5 @@
 <%@ include file="/WEB-INF/template/include.jsp"%>
 <openmrs:htmlInclude
-	file="/moduleResources/@MODULE_ID@/scripts/jquery1.js" />
-<openmrs:htmlInclude
 	file="/moduleResources/@MODULE_ID@/scripts/demo_page1.css" />
 <openmrs:htmlInclude
 	file="/moduleResources/@MODULE_ID@/scripts/demo_table1.css" />
@@ -28,6 +26,7 @@
 	$f(document)
 			.ready(
 					function() {
+						$f(".dialogCloseImg").trigger('click');
 						$f("#labOrderForm").hide();
 						$f("#toggleForm").click( function() {
 							$f("#labOrderForm").toggle();
