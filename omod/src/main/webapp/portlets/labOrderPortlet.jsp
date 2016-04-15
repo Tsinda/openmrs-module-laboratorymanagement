@@ -22,32 +22,31 @@
 }
 </style>
 <script>
-	var $f = jQuery.noConflict();
-	$f(document)
+	jQuery(document)
 			.ready(
 					function() {
-						$f(".dialogCloseImg").trigger('click');
-						$f("#labOrderForm").hide();
-						$f("#toggleForm").click( function() {
-							$f("#labOrderForm").toggle();
+						//jQuery(".dialogCloseImg").trigger('click');
+						jQuery("#labOrderForm").hide();
+						jQuery("#toggleForm").click( function() {
+							jQuery("#labOrderForm").toggle();
 						});
 
-						oTable = $f('#example_table')
+						oTable = jQuery('#example_table')
 								.dataTable(
 										{
 											"fnDrawCallback" : function(
 													oSettings) {
 												if (oSettings.aiDisplay.length == 0) {
-													$f('table#example_table')
+													jQuery('table#example_table')
 															.css( {
 																'width' :'100%'
 															});
 													return;
 												}
 
-												var nTrs = $f('tbody tr',
+												var nTrs = jQuery('tbody tr',
 														oSettings.nTable);
-												$f('table#example_table').css( {
+												jQuery('table#example_table').css( {
 													'width' :'100%'
 												});
 												var iColspan = nTrs[0]
@@ -84,32 +83,32 @@
 											"sDom" :'lfr<"giveHeight"t>ip'
 										});
 
-						$f('#print_lab_ordonance')
+						jQuery('#print_lab_ordonance')
 								.click(
 										function(e) {
 											var row = null;
 											var s = '';
-											var columns = $f(
+											var columns = jQuery(
 													'#example_table thead th')
 													.map( function() {
-														return $f(this).text();
+														return jQuery(this).text();
 													});
-											var tableObject = $f(
+											var tableObject = jQuery(
 													'#example_table tbody tr')
 													.map(
 															function(i) {
 																row = {};
-																$f(this)
+																jQuery(this)
 																		.find(
 																				'td')
 																		.each(
 																				function(
 																						i) {
 																					var rowName = columns[i];
-																					row[rowName] = $f(
+																					row[rowName] = jQuery(
 																							this)
 																							.text();
-																					s += $f(
+																					s += jQuery(
 																							this)
 																							.text() + ',';
 																				});
@@ -122,7 +121,7 @@
 											var count = 1;
 											var date = '';
 											var frequency = '';
-											var patientName = $f(
+											var patientName = jQuery(
 													'#patientHeaderPatientName')
 													.text();
 											for ( var k = 0; k < res.length; k++) {
@@ -152,28 +151,28 @@
 													}
 												}
 											}
-											$f('#firstTd').html(leftStr);
-											$f('#secondTd').html(rightStr);
-											$f('#dateId').html(date);
+											jQuery('#firstTd').html(leftStr);
+											jQuery('#secondTd').html(rightStr);
+											jQuery('#dateId').html(date);
 										});
 
-						$f("#print_btn").click( function() {
-							$f(".printable").printArea();
+						jQuery("#print_btn").click( function() {
+							jQuery(".printable").printArea();
 						});
 
-						$f('.parent')
+						jQuery('.parent')
 								.click(
 										function() {
 											var parentId = this.id;
 											var parentConceptId = parentId
 													.split('_')[1];
-											if ($f('#' + parentId)
+											if (jQuery('#' + parentId)
 													.is(':checked')) {
-												$f('.child_' + parentConceptId)
+												jQuery('.child_' + parentConceptId)
 														.attr('checked',
 																'checked');
 											} else {
-												$f('.child_' + parentConceptId)
+												jQuery('.child_' + parentConceptId)
 														.removeAttr('checked');
 											}
 										});
