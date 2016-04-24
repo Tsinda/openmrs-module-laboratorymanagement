@@ -749,11 +749,8 @@ public class LaboratoryDAOimpl implements LaboratoryDAO {
 		table.addCell(cell);
 		document.add(table);
 		document.close();
-		
-		
 
 		document.close();
-
 	}
 
 	@Override

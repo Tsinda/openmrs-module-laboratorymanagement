@@ -5,7 +5,11 @@ import java.util.List;
 import org.openmrs.Concept;
 
 public class LabOrderParent {
+	
 	private Concept grandFatherConcept;
+	
+	private String grandFatherConceptName;
+	
 	private List<LabOrder> labTests;
 
 	/**
@@ -34,5 +38,16 @@ public class LabOrderParent {
 	 */
 	public void setGrandFatherConcept(Concept grandFatherConcept) {
 		this.grandFatherConcept = grandFatherConcept;
+		if(getGrandFatherConcept().getName() != null) {
+			setGrandFatherConceptName(getGrandFatherConcept().getName().getName());
+		}
+	}
+
+	public String getGrandFatherConceptName() {
+		return grandFatherConceptName;
+	}
+
+	public void setGrandFatherConceptName(String grandFatherConceptName) {
+		this.grandFatherConceptName = grandFatherConceptName;
 	}
 }

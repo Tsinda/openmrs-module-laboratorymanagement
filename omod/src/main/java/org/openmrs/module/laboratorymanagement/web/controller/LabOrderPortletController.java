@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.openmrs.CareSetting;
 import org.openmrs.Concept;
 import org.openmrs.ConceptName;
 import org.openmrs.Location;
@@ -22,10 +21,14 @@ import org.openmrs.module.laboratorymanagement.OrderObs;
 import org.openmrs.module.laboratorymanagement.advice.LabTestConstants;
 import org.openmrs.module.laboratorymanagement.utils.GlobalPropertiesMgt;
 import org.openmrs.module.laboratorymanagement.utils.LabUtils;
+import org.openmrs.module.laboratorymanagement.web.controller2.LabOrdersMainController;
 import org.openmrs.module.mohappointment.model.MoHAppointment;
 import org.openmrs.module.mohappointment.utils.AppointmentUtil;
 import org.openmrs.web.controller.PortletController;
 
+/**
+ * Nolonger used, instead {@link LabOrdersMainController} is used
+ */
 public class LabOrderPortletController extends PortletController {
 
 	@SuppressWarnings("unchecked")
@@ -75,7 +78,7 @@ public class LabOrderPortletController extends PortletController {
 		if(request.getParameter("saveLabOrders")!=null){
 			// Saving selected lab orders:	
 			
-			LabUtils.saveSelectedLabOrders(parameterMap, patient);
+			LabUtils.saveSelectedLabOrders(parameterMap, patient, null, null);
 			model.put("msg", "The Lab order is successfully created");
 					
 				

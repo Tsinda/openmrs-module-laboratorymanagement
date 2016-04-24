@@ -24,13 +24,13 @@ import org.openmrs.ConceptSet;
 import org.openmrs.Encounter;
 import org.openmrs.EncounterType;
 import org.openmrs.Location;
-import org.openmrs.Patient;
-
 import org.openmrs.Obs;
 import org.openmrs.Order;
+import org.openmrs.OrderType;
+import org.openmrs.Patient;
+import org.openmrs.TestOrder;
 import org.openmrs.api.ConceptService;
 import org.openmrs.api.LocationService;
-import org.openmrs.api.ObsService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.laboratorymanagement.EveryOrder;
 import org.openmrs.module.laboratorymanagement.LabOrder;
@@ -288,9 +288,9 @@ public class LabUtils {
 	 *            to whom is ordered Lab order
 	 */
 	public static void saveSelectedLabOrders(
-			Map<String, String[]> parameterMap, Patient patient) {
+			Map<String, String[]> parameterMap, Patient patient, Encounter enc, OrderType orderType) {
 		String labOrderTypeIdStr = GlobalPropertiesMgt.getLabOrderTypeId();
-		int labOrderTypeId = Integer.parseInt(labOrderTypeIdStr);
+		Integer labOrderTypeId = StringUtils.isNotBlank(labOrderTypeIdStr) ? Integer.parseInt(labOrderTypeIdStr) : null;
 
 		for (String parameterName : parameterMap.keySet()) {
 
@@ -307,16 +307,19 @@ public class LabUtils {
 			String SingleLabConceptIdstr = parameterValues[0];
 			String accessionNumber = "access-" + gpCptIdStr + "-" + pcptIdstr+ "-" + chldCptIdStr;
 
-			Order labOrder = new Order();
+			TestOrder labOrder = new TestOrder();
 			
-			
+			labOrder.setCareSetting(Context.getOrderService().getCareSettingByName("Inpatient"));
+			labOrder.setOrderType(orderType != null ? orderType : Context.getOrderService().getOrderTypeByName("Lab test"));
 			labOrder.setOrderer(Context.getProviderService().getProvider(Context.getAuthenticatedUser().getId()));
 			labOrder.setPatient(patient);
+			labOrder.setEncounter(enc);
 			labOrder.setConcept(Context.getConceptService().getConcept(
 					Integer.parseInt(SingleLabConceptIdstr)));
 			labOrder.setDateActivated(new Date());
 			// labOrder.setAccessionNumber(accessionNumber);
-			labOrder.setOrderType(Context.getOrderService().getOrderType(labOrderTypeId));
+			if(labOrderTypeId != null)
+				labOrder.setOrderType(Context.getOrderService().getOrderType(labOrderTypeId));
 			Context.getOrderService().saveOrder(labOrder,null);
 
 		}
@@ -735,7 +738,7 @@ public class LabUtils {
 		Map<Date, List<OrderObs>> orderObsMap = new HashMap<Date, List<OrderObs>>();
 
 		for (Order order : orders) {
-			if (labOrderTypeId != null && order.getOrderType().getOrderTypeId() == labOrderTypeId) {
+			if (labOrderTypeId != null && !order.isVoided() && order.getOrderType().getOrderTypeId() == labOrderTypeId) {//ignores cancelled or voided orders
 				dates.add(order.getEffectiveStartDate());
 			}
 		}
@@ -745,8 +748,8 @@ public class LabUtils {
 				orderObsList = new ArrayList<OrderObs>();
 
 				for (Order order : orders) {
-					if (labOrderTypeId != null && order.getOrderType().getOrderTypeId() == labOrderTypeId
-							&& order.getEffectiveStartDate().equals(date)) {
+					if (labOrderTypeId != null && !order.isVoided() && order.getOrderType().getOrderTypeId() == labOrderTypeId
+							&& order.getEffectiveStartDate().equals(date)) {//ignores cancelled or voided orders
 						obsList = new ArrayList<Object[]>();
 						OrderObs orderObs = new OrderObs();
 						for (Obs obs : observations) {
@@ -992,11 +995,7 @@ public static Object[] getIncompleteLabOrder(Concept cpt){
 	public static void cancelLabOrder(String labOrderIdStr) {
 		Integer orderId = Integer.parseInt(labOrderIdStr);
 		Order labOrder = Context.getOrderService().getOrder(orderId);
-		labOrder.setVoided(true);
-		labOrder.setVoidedBy(Context.getAuthenticatedUser());
-		labOrder.setDateVoided(new Date());
-		Context.getOrderService().saveOrder(labOrder,null);
-
+		Context.getOrderService().voidOrder(labOrder, "Cancelled by user: " + Context.getAuthenticatedUser().getDisplayString());
 	}
 
 	public static String getNormalRanges(ConceptNumeric cptNumeric) {

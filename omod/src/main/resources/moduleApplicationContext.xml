@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
-
 	<!-- Beans to add to the current Application context definition -->
 	<!-- Set up URL mappings for new URLs -->
 
-<beans>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans 
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd 
+           http://www.springframework.org/schema/util
+           http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+           
 	<bean parent="serviceContext">
 		<property name="moduleService">
 			<list>
@@ -59,14 +67,18 @@
 			     <prop key="module/laboratorymanagement/monthlyReport.form">viewMonthlyReportController</prop>
 			    <prop key="module/laboratorymanagement/labConfiguration.form">labConfigurationController</prop>
 			    <prop key="module/laboratorymanagement/displayLabExams.form">displayLabExamsController</prop>
-			    <prop key="module/laboratorymanagement/portlets/labOrderPortlet.portlet">labOrderPortletController</prop>
+			    <!--prop key="module/laboratorymanagement/portlets/labOrderPortlet.portlet">labOrderPortletController</prop-->
 			</props>
 		</property>
 	</bean>
 
+	<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/>
+	
+	<context:component-scan base-package="org.openmrs.module.laboratorymanagement.web.controller2"/>
+	
 	<!-- Controllers -->
-	<bean id="labOrderPortletController"
-		class="org.openmrs.module.laboratorymanagement.web.controller.LabOrderPortletController" />
+	<!--bean id="labOrderPortletController"
+		class="org.openmrs.module.laboratorymanagement.web.controller.LabOrderPortletController"/-->
 	
 	<bean id="labTestChartView" class="org.openmrs.module.laboratorymanagement.web.chart.EvolutionOfClientRegisteredPerDay"/>
 
