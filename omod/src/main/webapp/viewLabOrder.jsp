@@ -2,7 +2,6 @@
 <%@ include file="/WEB-INF/template/header.jsp"%>
 <%@ include file="localHeader.jsp"%>
 
-<openmrs:htmlInclude file="/moduleResources/laboratorymanagement/style.css" />
 <openmrs:htmlInclude
 	file="/moduleResources/laboratorymanagement/jquery.dataTables.js" />
 

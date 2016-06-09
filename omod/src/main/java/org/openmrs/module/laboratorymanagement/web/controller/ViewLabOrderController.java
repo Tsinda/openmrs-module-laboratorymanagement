@@ -88,23 +88,13 @@ public class ViewLabOrderController extends ParameterizableViewController {
 	            labOrder.setDateActivated(labOrder.getEffectiveStartDate());
 	            labOrder.setEncounter(labEncounter);
 				Context.getOrderService().saveOrder(labOrder,null);
-	             
-				
 			}
-			
 			
 			mappedLabOrders = LabUtils.findPatientLabOrders(patientId,	startDate, endDate, null);		
 			model.put("patient", Context.getPatientService().getPatient(
 					patientId));
-			
-			
-			
-			
-			
-			
 		}
 		
-
 		model.put("mappedLabOrders", mappedLabOrders);
 		model.put("startDate", startDate);
 		model.put("startDat", request.getParameter("startDate"));
